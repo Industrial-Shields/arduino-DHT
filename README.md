@@ -24,10 +24,6 @@ You can find DHT tutorials [here](https://learn.adafruit.com/dht).
 1. Extract the zip file
 1. In the Arduino IDE, navigate to Sketch > Include Library > Add .ZIP Library
 
-## Requirements
-
-This library depends on [Adafruit Unified Sensor Library](https://github.com/adafruit/Adafruit_Sensor). To use this library the user must download the required library.
-
 ## Features
 
 - ### Inexpensive
@@ -69,8 +65,6 @@ This library depends on [Adafruit Unified Sensor Library](https://github.com/ada
 - expectPulse()
 
 ## Example
-
-Examples include both a "standalone" DHT example and one that works along with the Adafruit Unified Sensor Library. A Unified sensor library is required even if using the standalone version. You can find other examples from [Github-DHT-sensor-library](https://github.com/adafruit/DHT-sensor-library/tree/master/examples).
 
 ```Cpp
 #include "DHT.h"
