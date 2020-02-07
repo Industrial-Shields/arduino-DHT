@@ -60,6 +60,10 @@ void DHT::begin(uint8_t pin, uint8_t type, uint8_t usec) {
   pullTime = usec;
 }
 
+void DHT::end() {
+	pinMode(_pin, INPUT);
+}
+
 /*!
  *  @brief  Read temperature
  *  @param  S
