@@ -71,13 +71,13 @@ You can find DHT tutorials [here](https://learn.adafruit.com/dht).
 
 #define DHTPIN 2
 #define DHTTYPE DHT22
-DHT dht(DHTPIN, DHTTYPE);
+DHT dht;
 
 void setup() {
   Serial.begin(9600);
   Serial.println(F("DHTxx test!"));
 
-  dht.begin();
+  dht.begin(DHTPIN, DHTTYPE);
 }
 
 void loop() {

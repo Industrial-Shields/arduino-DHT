@@ -23,14 +23,14 @@
 // See guide for details on sensor wiring and usage:
 //   https://learn.adafruit.com/dht/overview
 
-DHT_Unified dht(DHTPIN, DHTTYPE);
+DHT_Unified dht;
 
 uint32_t delayMS;
 
 void setup() {
   Serial.begin(9600);
   // Initialize device.
-  dht.begin();
+  dht.begin(DHTPIN, DHTTYPE);
   Serial.println(F("DHTxx Unified Sensor Example"));
   // Print temperature sensor details.
   sensor_t sensor;

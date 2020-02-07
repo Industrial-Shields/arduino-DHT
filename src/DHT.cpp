@@ -29,15 +29,16 @@
 #define TIMEOUT -1        /**< timeout on */
 
 /*!
- *  @brief  Instantiates a new DHT class
+ *  @brief  Setup sensor pins and set pull timings
  *  @param  pin
  *          pin number that sensor is connected
  *  @param  type
  *          type of sensor
- *  @param  count
- *          number of sensors
+ *  @param  usec
+ *          Optionally pass pull-up time (in microseconds) before DHT reading
+ *starts. Default is 55 (see function declaration in DHT.h).
  */
-DHT::DHT(uint8_t pin, uint8_t type, uint8_t count) {
+void DHT::begin(uint8_t pin, uint8_t type, uint8_t usec) {
   _pin = pin;
   _type = type;
 #ifdef __AVR
@@ -47,17 +48,7 @@ DHT::DHT(uint8_t pin, uint8_t type, uint8_t count) {
   _maxcycles =
       microsecondsToClockCycles(1000); // 1 millisecond timeout for
                                        // reading pulses from DHT sensor.
-  // Note that count is now ignored as the DHT reading algorithm adjusts itself
-  // based on the speed of the processor.
-}
 
-/*!
- *  @brief  Setup sensor pins and set pull timings
- *  @param  usec
- *          Optionally pass pull-up time (in microseconds) before DHT reading
- *starts. Default is 55 (see function declaration in DHT.h).
- */
-void DHT::begin(uint8_t usec) {
   // set up the pins!
   pinMode(_pin, INPUT_PULLUP);
   // Using this value makes sure that millis() - lastreadtime will be
